@@ -1,0 +1,17 @@
+﻿@model AspMvcConferenceEkzamen.Models.Conference
+
+<div>Пользователи зарегистрировавшиеся на конференцию</div>
+<table class="table">
+     <tr><th>Имя</th><th>Фамилия</th></tr>
+   @if(Model != null)
+   {
+     @foreach (User item in Model.Users)
+     {
+        <tr>
+            <td>@item.Name</td>     
+            <td>@item.Surname</td>  
+        </tr>
+     }
+   }
+
+</table>

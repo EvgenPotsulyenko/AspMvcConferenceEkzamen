@@ -1,0 +1,50 @@
+﻿ @model AspMvcConferenceEkzamen.Models.ViewConference
+
+<p><a asp-action="CreateConference">Создать Конференцию</a></p>
+@*<p><a asp-action="CreateUser">Зарегистрироваться на Конференцию</a></p>*@
+
+
+<table class="table">
+     <tr><th>Название</th><th>Организатор</th><th>Спронсор</th><th>Программа</th><th>Докладчики</th></tr>
+   @if(Model != null)
+   {
+     @foreach (Conference item in Model.ArConference)
+     {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Organizer</td>
+            <td>@item.Sponsors</td>
+            <td>@item.Scenario</td> 
+            <td>@item.Speakers</td>
+            <td>
+            <form asp-action="CreateUser" asp-controller="home" method="post" enctype="multipart/form-data">  
+                <p>
+                     <input type="hidden" asp-for="Conferenc.id" value="@item.id"/>
+                  </p>
+                  <p>
+                     <input type="hidden" asp-for="Conferenc.Name" value="@item.Name"/>
+                  </p>
+                  <p>
+                     <input type="hidden" asp-for="Conferenc.Organizer" value="@item.Organizer"/>
+                  </p>
+                  <p>
+                     <input type="hidden" asp-for="Conferenc.Sponsors" value="@item.Sponsors"/>
+                  </p>
+                  <p>
+                     <input type="hidden" asp-for="Conferenc.Scenario" value="@item.Scenario"/>
+                  </p>
+                  <p>
+                     <input type="hidden" asp-for="Conferenc.Speakers" value="@item.Speakers"/>
+                  </p>
+                 <p>
+                      <input type="submit" value="Зарегистрироваться"/>
+                  </p>
+             
+            </form>
+            </td>
+        </tr>
+     }
+   }
+
+</table>
+

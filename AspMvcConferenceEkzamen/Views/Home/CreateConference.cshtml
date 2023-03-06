@@ -1,0 +1,28 @@
+﻿@model AspMvcConferenceEkzamen.Models.Conference
+
+    <<h2>Добавление Конференции</h2>
+<form asp-action="AddConference" asp-controller="home" method="post" enctype="multipart/form-data">
+    <p>
+        <label asp-for="Name">Название</label><br />
+        <input type="text" asp-for="Name"/>
+    </p>
+    <p>
+        <label asp-for="Organizer">Организатор</label><br />
+        <input type="text" asp-for="Organizer"/>
+    </p>
+    <p>
+        <label asp-for="Sponsors">Спонсоры</label><br />
+        <input type="text" asp-for="Sponsors"/>
+    </p>
+    <p>
+        <label asp-for="Scenario">Программа конференции</label><br />
+        <input type="text" asp-for="Scenario"/>
+    </p>
+    <p>
+        <label asp-for="Speakers">Докладчики</label><br />
+        <input type="text" asp-for="Speakers"/>
+    </p>
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>
